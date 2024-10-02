@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  leader:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - kvnet
+
+  data1:
+    build: .
+    networks:
+      - kvnet
+
+  data2:
+    build: .
+    networks:
+      - kvnet
+
+networks:
+  kvnet:
+    driver: bridge
